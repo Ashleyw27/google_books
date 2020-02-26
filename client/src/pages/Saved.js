@@ -66,14 +66,22 @@ function Saved() {
                         <List>
                             {books.map(book => (
                                 <ListItem key={book._id}>
-                                    <DeleteBtn onClick={() => deleteBook(book._id)} />
-                                    <Card title={book.title} author={book.author} synopsis={book.synopsis}/>
+                                    <DeleteBtn
+                                        onClick={() => deleteBook(book._id)}
+                                    />
+                                    <Card
+                                        title={book.title}
+                                        author={book.author}
+                                        synopsis={book.synopsis}
+                                    />
+
+
                                     {/* <Link to={"/books/" + book._id}>
                                         <strong>
                                             {book.title} by {book.author}
                                         </strong>
                                     </Link> */}
-                                    
+
                                 </ListItem>
                             ))}
                         </List>

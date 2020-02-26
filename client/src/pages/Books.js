@@ -6,7 +6,7 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/Form";
 
 function Books() {
   // Setting our component's initial state
@@ -16,14 +16,14 @@ function Books() {
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadBooks()
+    // loadBooks()
   }, [])
 
   // Loads all books and sets them to books
   function loadBooks() {
     API.getApiBook()
       .then(res =>
-        setBooks(res.data)
+        setBooks(res.data.items)
       )
       .catch(err => console.log(err));
   };
@@ -41,26 +41,13 @@ function Books() {
     setBookSearch(value)
   };
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
-  // function handleFormSubmit(event) {
-  //   event.preventDefault();
-  //   if (formObject.title && formObject.author) {
-  //     API.saveBook({
-  //       title: formObject.title,
-  //       author: formObject.author,
-  //       synopsis: formObject.synopsis
-  //     })
-  //       .then(res => loadBooks())
-  //       .catch(err => console.log(err));
-  //   }
-  // };
-
   const handleFormSubmit = event => {
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
     API.getApiBook(bookSearch)
-      .then(res => setBooks(res.data))
+      .then(res => {
+        console.log(res)
+         setBooks(res.data.items)})
       .catch(err => console.log(err));
   };
 
@@ -94,8 +81,19 @@ function Books() {
               <List>
                 {books.map(book => (
                   <ListItem key={book._id}>
-                    <DeleteBtn onClick={() => deleteBook(book._id)} />
-                    <Card title={book.title} author={book.author} synopsis={book.synopsis} />
+                    <DeleteBtn 
+                    onClick={() => deleteBook(book._id)} 
+                    
+                    />
+                    <a href={book.volumeInfo.previewLink}/>
+                    <Card 
+                    title={book.volumeInfo.title} 
+                    author={book.volumeInfo.authors} 
+                    synopsis={book.volumeInfo.description} 
+                    image={book.volumeInfo.imageLinks.thumbnail}
+                    />
+
+
                     {/* <Link to={"/books/" + book._id}>
                                         <strong>
                                             {book.title} by {book.author}

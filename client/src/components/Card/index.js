@@ -1,11 +1,11 @@
 import React from "react";
 
-function Card({title, author, synopsis}) {
+function Card({image, title, author, synopsis}) {
   return (
     <div className="card mb-3">
     <div className="row no-gutters">
       <div class="col-md-2">
-        <img src="..." className="card-img" alt="Book Image" />
+        <img src={image} className="card-img" alt="book image" />
       </div>
 
       <div class="col-md-10">
