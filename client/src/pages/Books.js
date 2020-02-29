@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SaveBtn from "../components/LinkBtn";
+import SaveBtn from "../components/SaveBtn";
 import Card from "../components/Card";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
@@ -44,18 +44,19 @@ function Books() {
   };
   //  Use the API.saveBook method to save the book data
   //   Then reload books from the database
-  // function handleBookSave(event) {
-  //   event.preventDefault();
-  //   API.saveBook({
-  //     title: title,
-  //     author: author,
-  //     synopsis: synopsis,
-  //     link: link,
-  //     image: image
-  //   })
-  //     .then(res => loadBooks())
-  //     .catch(err => console.log(err));
-  // };
+  function handleBookSave({id, title, author, synopsis, link, image}) {
+    console.log(id, title, author, synopsis, link, image)
+
+    API.saveBook({
+      title: title,
+      author: author,
+      synopsis: synopsis,
+      link: link,
+      image: image
+    })
+      // .then(res => loadBooks())
+      .catch(err => console.log(err));
+  };
 
   return (
     <Container fluid>
@@ -86,12 +87,13 @@ function Books() {
           {books.length ? (
             <List>
               {books.map(book => (
-                <ListItem key={book._id}>
-                  {/* <SaveBtn
-                    onClick={() => handleBookSave(book._id)}
-                  /> */}
+                <ListItem key={book.id}>
+                  <SaveBtn
+                    onClick={() => handleBookSave({id: book.id, title: book.volumeInfo.title, author: book.volumeInfo.authors[0], synopsis: book.volumeInfo.description, link: book.volumeInfo.previewLink, image: book.volumeInfo.imageLinks.thumbnail})}
+                  />
                   <br></br>
                   <Card
+                    key={book.id}
                     title={book.volumeInfo.title}
                     author={book.volumeInfo.authors}
                     synopsis={book.volumeInfo.description}

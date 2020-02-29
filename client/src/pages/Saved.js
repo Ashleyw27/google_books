@@ -9,7 +9,6 @@ import { List, ListItem } from "../components/List";
 function Saved() {
     // Setting our component's initial state
     const [books, setBooks] = useState([])
-    const [formObject, setFormObject] = useState({})
 
     // Load all books and store them with setBooks
     useEffect(() => {
@@ -31,7 +30,7 @@ function Saved() {
             .then(res => loadBooks())
             .catch(err => console.log(err));
     }
-
+    console.log(books)
     return (
         <Container fluid>
             <Row>

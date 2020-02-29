@@ -13,7 +13,7 @@ function Card({link, image, title, author, synopsis}) {
           <h5 className="card-title">{title}</h5>
           <p className="card-text"><small className="text-muted">by: {author}</small></p>
           <p className="card-text">{synopsis}</p>
-          <a className="btn"href={link} target="_blank">Clink here to view book details</a>
+          <a className="btn"href={link} target="_blank">Click here to view book details</a>
         </div>
       </div>
     </div>
