@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+import SaveBtn from "../components/LinkBtn";
 import Card from "../components/Card";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
@@ -16,7 +15,6 @@ function Books() {
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    // loadBooks()
   }, [])
 
   // Loads all books and sets them to books
@@ -27,13 +25,6 @@ function Books() {
       )
       .catch(err => console.log(err));
   };
-
-  // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
-      .then(res => loadBooks())
-      .catch(err => console.log(err));
-  }
 
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -47,9 +38,24 @@ function Books() {
     API.getApiBook(bookSearch)
       .then(res => {
         console.log(res)
-         setBooks(res.data.items)})
+        setBooks(res.data.items)
+      })
       .catch(err => console.log(err));
   };
+  //  Use the API.saveBook method to save the book data
+  //   Then reload books from the database
+  // function handleBookSave(event) {
+  //   event.preventDefault();
+  //   API.saveBook({
+  //     title: title,
+  //     author: author,
+  //     synopsis: synopsis,
+  //     link: link,
+  //     image: image
+  //   })
+  //     .then(res => loadBooks())
+  //     .catch(err => console.log(err));
+  // };
 
   return (
     <Container fluid>
@@ -77,35 +83,27 @@ function Books() {
           <br></br>
           <br></br>
 
-            {books.length ? (
-              <List>
-                {books.map(book => (
-                  <ListItem key={book._id}>
-                    <DeleteBtn 
-                    onClick={() => deleteBook(book._id)} 
-                    
-                    />
-                    <a href={book.volumeInfo.previewLink}/>
-                    <Card 
-                    title={book.volumeInfo.title} 
-                    author={book.volumeInfo.authors} 
-                    synopsis={book.volumeInfo.description} 
+          {books.length ? (
+            <List>
+              {books.map(book => (
+                <ListItem key={book._id}>
+                  {/* <SaveBtn
+                    onClick={() => handleBookSave(book._id)}
+                  /> */}
+                  <br></br>
+                  <Card
+                    title={book.volumeInfo.title}
+                    author={book.volumeInfo.authors}
+                    synopsis={book.volumeInfo.description}
+                    link={book.volumeInfo.previewLink}
                     image={book.volumeInfo.imageLinks.thumbnail}
-                    />
-
-
-                    {/* <Link to={"/books/" + book._id}>
-                                        <strong>
-                                            {book.title} by {book.author}
-                                        </strong>
-                                    </Link> */}
-
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-                <h3>No Results to Display</h3>
-              )}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          ) : (
+              <h3>No Results to Display</h3>
+            )}
 
         </Col>
       </Row>

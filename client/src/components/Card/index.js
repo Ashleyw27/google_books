@@ -1,18 +1,19 @@
 import React from "react";
 
-function Card({image, title, author, synopsis}) {
+function Card({link, image, title, author, synopsis}) {
   return (
     <div className="card mb-3">
     <div className="row no-gutters">
-      <div class="col-md-2">
-        <img src={image} className="card-img" alt="book image" />
+      <div className="col-md-2">
+        <img src={image} className="card-img" alt="book cover" />
       </div>
 
-      <div class="col-md-10">
-        <div class="card-body">
-          <h5 class="card-title">{title}</h5>
-          <p class="card-text"><small class="text-muted">by: {author}</small></p>
-          <p class="card-text">{synopsis}</p>
+      <div className="col-md-10">
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text"><small className="text-muted">by: {author}</small></p>
+          <p className="card-text">{synopsis}</p>
+          <a className="btn"href={link} target="_blank">Clink here to view book details</a>
         </div>
       </div>
     </div>

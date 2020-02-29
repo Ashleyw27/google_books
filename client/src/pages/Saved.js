@@ -3,10 +3,8 @@ import DeleteBtn from "../components/DeleteBtn";
 import Card from "../components/Card";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
 
 function Saved() {
     // Setting our component's initial state
@@ -34,27 +32,6 @@ function Saved() {
             .catch(err => console.log(err));
     }
 
-    // Handles updating component state when the user types into the input field
-    // function handleInputChange(event) {
-    //     const { name, value } = event.target;
-    //     setFormObject({ ...formObject, [name]: value })
-    // };
-
-    // When the form is submitted, use the API.saveBook method to save the book data
-    // Then reload books from the database
-    // function handleFormSubmit(event) {
-    //     event.preventDefault();
-    //     if (formObject.title && formObject.author) {
-    //         API.saveBook({
-    //             title: formObject.title,
-    //             author: formObject.author,
-    //             synopsis: formObject.synopsis
-    //         })
-    //             .then(res => loadBooks())
-    //             .catch(err => console.log(err));
-    //     }
-    // };
-
     return (
         <Container fluid>
             <Row>
@@ -69,19 +46,14 @@ function Saved() {
                                     <DeleteBtn
                                         onClick={() => deleteBook(book._id)}
                                     />
+                                    <br></br>
                                     <Card
                                         title={book.title}
                                         author={book.author}
                                         synopsis={book.synopsis}
+                                        link={book.link}
+                                        image={book.image}
                                     />
-
-
-                                    {/* <Link to={"/books/" + book._id}>
-                                        <strong>
-                                            {book.title} by {book.author}
-                                        </strong>
-                                    </Link> */}
-
                                 </ListItem>
                             ))}
                         </List>
