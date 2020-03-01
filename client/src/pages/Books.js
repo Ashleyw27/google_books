@@ -54,8 +54,8 @@ function Books() {
       link: link,
       image: image
     })
-      // .then(res => loadBooks())
       .catch(err => console.log(err));
+      alert("Book has been saved!")
   };
 
   return (
