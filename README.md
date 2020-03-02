@@ -16,17 +16,17 @@ In the Search bar, type the title of a book you are interested in reading and cl
 * Image of the book
 * Title
 * Author(s)
-*Synopsis
+* Synopsis
 * Clickable link to view additional information about that book
 
  
 Click the 'Save' button next to the book in which you would like to save to your personalized reading list.
 
 
-*Saved*
+*Saved Tab*
 
 
-Click on the 'Save' link at the top of the page to view you reading list. As you read each book click on the 'Delete' button next to each book that you have either read or are no longer interested in reading to remove that book from your list. Happy reading!
+Click on the 'Save' link at the top of the page to view your reading list. Click the 'Delete' button next to each book that you have either read or are no longer interested in reading to remove that book from your list. Happy reading!
 
 
 [Click here to create your own reading list!](https://ashleyw27.github.io/code_quiz/)
