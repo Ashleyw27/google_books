@@ -13,12 +13,13 @@ So that I can reference this list and delete the books as they are read
 In the Search bar, type the title of a book you are interested in reading and click the 'Submit Book' button. A list of books with the specified title or similar title will appear with the following information:
 
 
-Image of the book
-Title
-Author(s)
-Synopsis
-Clickable link to view additional information about that book
+* Image of the book
+* Title
+* Author(s)
+*Synopsis
+* Clickable link to view additional information about that book
 
+ 
 Click the 'Save' button next to the book in which you would like to save to your personalized reading list.
 
 
@@ -36,11 +37,10 @@ Click on the 'Save' link at the top of the page to view you reading list. As you
 * *M*ongoDB
 * *E*xpress
 * *R*eact
-* *R*eact Hooks
-* *R*eact Router
 * *N*ode
   
 ## What I Learned
 I learned many new concepts and skills while creating this Google books search. A few of which include:
 * How to create an application utilizing the entire MERN stack
 * How to use React hooks
+* How to use React router
