@@ -31,7 +31,7 @@ Click on the 'Save' link at the top of the page to view your reading list. Click
 
 [Click here to create your own reading list!](https://ashleyw27.github.io/code_quiz/)
 
-![google_books](assets/images/code-quiz.png)
+![google_books](client/public/books.png)
 
 ## Technology
 * *M*ongoDB
