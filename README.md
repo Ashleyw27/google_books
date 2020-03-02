@@ -29,7 +29,7 @@ Click the 'Save' button next to the book in which you would like to save to your
 Click on the 'Save' link at the top of the page to view your reading list. Click the 'Delete' button next to each book that you have either read or are no longer interested in reading to remove that book from your list. Happy reading!
 
 
-[Click here to create your own reading list!](https://ashleyw27.github.io/code_quiz/)
+[Click here to create your own reading list!](https://mern-googlebooks-app.herokuapp.com/)
 
 ![google_books](client/public/books.png)
 
